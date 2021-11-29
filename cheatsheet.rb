@@ -1,4 +1,16 @@
 
+# operators
+
+x ||= 10                        # set x to 10 if x is nil or false
+x && = 100                      # set x to 100 if x isn't nil or false
+
+# arrays
+
+arr = []
+
+arr.push("a")
+arr.pop("a")
+
 # objects
 
 obj = Object.new # class method to create a new object
@@ -15,6 +27,14 @@ obj.send(:sym)
 obj.__send__(:sym)
 obj.public_send(:sym)           # send a message to object, only include public methods
 obj.methods                     # array with all methods
+obj.method(:foo)                # return an object representing obj's method 'foo'
+obj.method_missing(m, *args)    # called by Ruby when a method call on this object doesn't match any methods
+
+# methods
+
+m = obj.methods(:foo)
+
+m.super_method                  # returns this method's super method
 
 # classes
 
@@ -28,3 +48,18 @@ end
 
 MyClass.superclass          # parent class (Object)
 MyClass.class               # class of this object (Class) - classes are object w/ class = Class
+MyClass.ancestors           # all classes, superclasses, and modules that are a part of this class
+
+# modules
+
+module MyModule
+    def method
+
+    end
+end
+
+class OtherClass
+    include MyModule        # include methods and instance vars in this class
+    prepend MyModule        # include all of the above, but they take priority over classes methods and instance vars
+    extend MyModule         # add methods and vars at class level (static)
+end
