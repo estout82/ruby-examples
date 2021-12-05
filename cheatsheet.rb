@@ -2,7 +2,7 @@
 # operators
 
 x ||= 10                        # set x to 10 if x is nil or false
-x && = 100                      # set x to 100 if x isn't nil or false
+x &&= 100                      # set x to 100 if x isn't nil or false
 
 # arrays
 
