@@ -63,3 +63,21 @@ class OtherClass
     prepend MyModule        # include all of the above, but they take priority over classes methods and instance vars
     extend MyModule         # add methods and vars at class level (static)
 end
+
+# scope
+
+self                        # at top-level scope, self is the 'main' object
+                            # self is also the default receiver of messages
+                            # self is the object which recieved the message (method call)
+
+private                     # private methods can only be called on self w/o an explicit receiver
+                            # - with the execption of assignment methods (they need self as a receiver)
+
+::String                    # force an absolute lookup
+
+# class vars are heriearcy scoped (belong to the whole class hierarcy)
+
+# built-in globals
+
+$$                          # pid
+$:                          # path aka $LOAD_PATH
