@@ -16,4 +16,12 @@ rvm gemset list_all                 # list gemsets for all ruby versions
 rvm gemset create <name>            # create a new gemset for the current ruby version
 rvm use gemset <name>               # use a gemset
 rvm use 2.7.4@name                  # use a version and a gemset
-rvm genset empty <name>             # empty all gems out of a gemset
+rvm gemset empty <name>             # empty all gems out of a gemset
+rvm gemset delete <name>            # delete a gemset
+rvm gemset name                     # get the name of the current gemset
+rvm @global do gem install <name>   # install a gem at the global level
+
+# config files
+
+.ruby-gemset                        # text file containing the name of the gemset
+.ruby-version                       # text file containting the ruby version to use
