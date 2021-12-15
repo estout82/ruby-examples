@@ -2,7 +2,9 @@
 # operators
 
 x ||= 10                        # set x to 10 if x is nil or false
-x &&= 100                      # set x to 100 if x isn't nil or false
+x &&= 100                       # set x to 100 if x isn't nil or false
+
+x&.prop&.name                   # safe navigation operator: doesn't throw exception when accessing nil prop
 
 # arrays
 
@@ -81,3 +83,20 @@ private                     # private methods can only be called on self w/o an 
 
 $$                          # pid
 $:                          # path aka $LOAD_PATH
+
+# built-in methods
+
+block_given?                # returns true if caling yield in the current scope would call the given block
+
+# built-in objects
+
+Time.now                    # Time object with the current time
+
+t = Time.now
+
+t.wday                      # number representing the current weekday 
+
+arr = Array.new(1, 2, 3)
+arr << 4                    # adds an element into the array
+arr.each { |n| n * 10 }     # class a block for each elem, returning it's receiver (arr)
+arr.map { |n| n * 10 }      # calls block for each elem, returning a new array with new values returned by block
