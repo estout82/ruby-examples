@@ -6,12 +6,18 @@ x &&= 100                       # set x to 100 if x isn't nil or false
 
 x&.prop&.name                   # safe navigation operator: doesn't throw exception when accessing nil prop
 
+f = [1, 2, 3]
+[*f]                            # * (splat) is like the spread (...) operator in JS
+
 # arrays
 
 arr = []
 
 arr.push("a")
 arr.pop("a")
+arr << 4                    # adds an element into the array
+arr.each { |n| n * 10 }     # class a block for each elem, returning it's receiver (arr)
+arr.map { |n| n * 10 }      # calls block for each elem, returning a new array with new values returned by block
 
 # objects
 
@@ -19,6 +25,10 @@ obj = Object.new # class method to create a new object
 
 obj.to_s
 obj.to_i
+obj.to_f
+obj.to_a                        # convert to array - defined in Array class
+obj.to_str                      # called when obj needs to 'be' a String 
+obj.to_ary                      # called when obj needs to 'be' an Array
 obj.freeze                      # prevent modification
 obj.dup                         # create a duplicate, always unfrozen
 obj.clone                       # create a duplicate, frozen state preserved
@@ -31,6 +41,8 @@ obj.public_send(:sym)           # send a message to object, only include public 
 obj.methods                     # array with all methods
 obj.method(:foo)                # return an object representing obj's method 'foo'
 obj.method_missing(m, *args)    # called by Ruby when a method call on this object doesn't match any methods
+obj.inspect                     # called by irb on every value it prints
+obj.display                     # print object to STDOUT or another stream (uncommon)
 
 # methods
 
@@ -66,6 +78,11 @@ class OtherClass
     extend MyModule         # add methods and vars at class level (static)
 end
 
+# structs
+# - short hand for defining classes w/ read/write attributes... think struct in C
+
+Car = Struct.new(:miles, :make, :model)
+
 # scope
 
 self                        # at top-level scope, self is the 'main' object
@@ -88,6 +105,9 @@ $:                          # path aka $LOAD_PATH
 
 block_given?                # returns true if caling yield in the current scope would call the given block
 
+Integer("100")              # converts to integer (will throw ArgumentError if invalid chars)
+Float("20.83")              # ^^^ same but with floats
+
 # built-in objects
 
 Time.now                    # Time object with the current time
@@ -95,8 +115,3 @@ Time.now                    # Time object with the current time
 t = Time.now
 
 t.wday                      # number representing the current weekday 
-
-arr = Array.new(1, 2, 3)
-arr << 4                    # adds an element into the array
-arr.each { |n| n * 10 }     # class a block for each elem, returning it's receiver (arr)
-arr.map { |n| n * 10 }      # calls block for each elem, returning a new array with new values returned by block
