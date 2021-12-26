@@ -24,3 +24,13 @@ class Video < ActiveRecord::Base
     has_many :queue_items
     belongs_to :category
 end
+
+# scope
+# - define helper methods to simplify queries
+
+class Person
+    scope :alive, -> { where(dead: false, born: true) }
+end
+
+p = Person.new(person_fields)
+p.alive? # call scope

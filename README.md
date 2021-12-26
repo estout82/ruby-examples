@@ -8,3 +8,4 @@ My notes and practice examples for the book 'The Well Grounded Rubist' (Also oth
 - [Rails Guides](https://guides.rubyonrails.org/)
 - [Ruby Science (Rails Design Patterns)](https://raw.githubusercontent.com/thoughtbot/ruby-science/master/release/ruby-science.pdf)
 - [esbuild](https://esbuild.github.io/api/)
+- [Rails Presenters & Service Objects](https://www.rubyguides.com/2019/09/rails-patterns-presenter-service/)

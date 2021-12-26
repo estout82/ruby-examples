@@ -8,6 +8,11 @@
 module VersionTester
     attr_accessor :foo
 
+    # like a constructor, initializes the module when it is included
+    included do
+        puts "some initialization code..."
+    end
+
     def print_version
         system("ruby -v")
     end
