@@ -20,10 +20,13 @@ rails new appname --skip-sprockets # create a new project without asset pipeline
 # IMPORTANT
 # - app/assets/javascripts, app/assets/images, app/assets/stylesheets are the only dirs that are in search paths (add app/assets/builds)
 # - add all assets that aren't images, application.{css|js} to be pre-compiled
-# - NEVER set assets.compile = true in prod
+# - NEVER set config.assets.compile = true in prod
+
+# sprockets serves static files
+
+# uses manifest.js somehow (LOL)
 
 # webpacker is a rails wrapper around webpack
-# sprockets serves static files
 
 # sprockets                 webpacker
 # javascript_include_tag    javascript_pack_tag
