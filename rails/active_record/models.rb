@@ -55,6 +55,8 @@ validates :legacy_code, format: {                                   # ensure val
     message: "only allows letters" 
 }
 
+URI::MailTo::EMAIL_REGEXP                                           # email regex
+
 validates :size, inclusion: {                                       # ensure value is in a given set
     in: %w(small medium large),
     message: "%{value} is not a valid size" 
@@ -96,4 +98,18 @@ class Person < ApplicationRecord
         record.errors.add(attr, 'must start with upper case') if value =~ /\A[[:lower:]]/
     end
 end
-  
+
+# validates options
+allow_nil: true                         # skip validation if record is nil
+allow_blank: true                       # skip validation is blank? is true (empty string)
+message: "%{value} is incorrect"        # pass a custom error message
+
+on: :create                             # only execute on a certian operation
+on: :update
+person.valid?(:account_setup)
+person.save(context: :account_setup)
+on: :account_setup
+
+# errors
+model.errors.full_messages              # array with all friendly error messages
+model.errors.full_messages_for(:name)   # array with full messages for a specific field
