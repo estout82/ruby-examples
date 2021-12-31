@@ -1,0 +1,11 @@
+
+# polymorphic partials
+# - rails can render different partials depending on the type of an object
+
+<% @question = MultipleChoiceQuestion.new %>
+
+# calls @question.to_partial_path to get the partial that it should use
+<%= render @question %>
+
+# can render multiple different partials using a prefix or suffix
+<%= render "#{@question.to_partial_path}_form",locals: { form: form, value: 10 } %>

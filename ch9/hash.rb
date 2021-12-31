@@ -11,3 +11,14 @@ end
 colors.each_with_index do |(key, value), index|
     puts "#{key}: #{value} - index #{index}"
 end
+
+# inject
+
+all = colors.inject do |result, color|
+    result.append ":#{color}"
+end
+
+puts
+puts all
+
+# reduce
