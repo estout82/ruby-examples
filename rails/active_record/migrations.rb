@@ -1,4 +1,18 @@
 #!/usr/bin/env ruby
 
 # datatypes
-# :primary_key, :string, :text, :integer, :bigint, :float, :decimal, :numeric, :datetime, :time, :date, :binary, :blob, :boolean
+t.primary_key
+t.string
+t.text
+t.integer
+t.bigint
+t.float
+t.decimal
+t.numeric
+t.datetime
+t.time
+t.date
+t.binary
+t.blob
+t.boolean
+t.references

@@ -1,0 +1,14 @@
+{
+  "ruby.interpreter.commandPath": "/usr/bin/env ruby",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true
+    },
+    "reek": {
+      "useBundler": true
+    }
+  },
+  "ruby.format": "rubocop"
+}

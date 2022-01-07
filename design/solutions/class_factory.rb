@@ -1,5 +1,6 @@
 
 # an abstract factory is an object that knows how to build something
+# - use this to move logic out of a long case statement
 
 class SummariesController
   def show
