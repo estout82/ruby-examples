@@ -1,0 +1,4 @@
+
+<% form.file_field :avatar %>                       # render a file input tag
+<%= image_tag user.avatar %>
+<%= image_tag user.avatar.variant(:thumb) %>        # render an image tag for variant

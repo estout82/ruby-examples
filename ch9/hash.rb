@@ -2,20 +2,23 @@
 
 colors = { blue: "Blue", purple: "Purple", yellow: "Yellow" }
 
+colors.except :purple                                   # returns new hash will all keys except the ones specified
+colors.except! :purple
+
 # iteration
 
 colors.each do |(key, value)|  # the (key, value) is destructiring an array
-    puts "#{key}: #{value}"
+  puts "#{key}: #{value}"
 end
 
 colors.each_with_index do |(key, value), index|
-    puts "#{key}: #{value} - index #{index}"
+  puts "#{key}: #{value} - index #{index}"
 end
 
 # inject
 
 all = colors.inject do |result, color|
-    result.append ":#{color}"
+  result.append ":#{color}"
 end
 
 puts
