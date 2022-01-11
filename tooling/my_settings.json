@@ -1,0 +1,39 @@
+{
+  "debug.allowBreakpointsEverywhere": true,
+  "explorer.confirmDragAndDrop": false,
+  "testExplorer.addToEditorContextMenu": true,
+  "explorer.confirmDelete": false,
+  "C_Cpp.updateChannel": "Insiders",
+  "[cpp]": {
+      
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.colorTheme": "Atom One Dark",
+  "AllAutocomplete.showCurrentDocument": false,
+  "[plaintext]": {
+  "editor.quickSuggestions": false,
+  "editor.wordBasedSuggestions": false,
+  "editor.suggest.showClasses": false,
+  "editor.suggest.showConstants": false,
+  "editor.suggest.showColors": false,
+  "editor.suggest.showCustomcolors": false,
+  "editor.suggest.showConstructors": false,
+  "editor.suggest.showEnums": false,
+  "editor.suggest.showEnumMembers": false,
+  "editor.suggest.showFields": false,
+  "editor.suggest.showEvents": false,
+  "editor.suggest.showFiles": false,
+  "editor.suggest.showFolders": false
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "mssql.connections": [],
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "editor.tabSize": 2,
+  "ruby.interpreter.commandPath": "/usr/bin/env ruby",
+  "window.zoomLevel": 2, //run non-lint commands with bundle exec
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 500,
+  "editor.wordBasedSuggestions": false,
+}
