@@ -1,0 +1,13 @@
+
+this generates a link that is intercepted by rails ujs. sends an async request to server
+<%= link_to "Delete", user_path(@user), remote: true, class: "add" method: :delete %>
+
+<script>
+  $(document).on("load", addListeners);
+
+  function addListeners() {
+    $("a.add").on("ajax:success"), function (e, data) {
+      $(".book-list").append(data.book); // add the data to the dom
+    });
+  }
+</script>
