@@ -31,9 +31,30 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "editor.tabSize": 2,
-  "ruby.interpreter.commandPath": "/usr/bin/env ruby",
-  "window.zoomLevel": 2, //run non-lint commands with bundle exec
+  "window.zoomLevel": 2,
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 500,
   "editor.wordBasedSuggestions": false,
+
+  "ruby.interpreter.commandPath": "/usr/bin/env ruby",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true
+    },
+    "reek": {
+      "useBundler": true
+    }
+  },
+  "ruby.format": "rubocop",
+  "scssLint.showHighlights": false,
+    "scssLint.runOnTextChange": false,
+    "scssLint.errorBackgroundColor": "rgba(200, 0, 0, .8)",
+    "scssLint.warningBackgroundColor": "rgba(200, 120, 0, .8)",
+    "scssLint.languages": [
+        "scss"
+    ],
+    "scssLint.statusBarText": "`$(telescope) scss-lint  ${errors.length} $(x)  ${warnings.length} $(alert)`",
+    "scssLint.configDir": ""
 }
