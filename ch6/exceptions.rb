@@ -84,3 +84,19 @@ rescue Exception => e
     puts "e.class: #{e.class}"
     puts "e.messsage: #{e.message}"
 end
+
+# method rescue syntax - clean way to wrap entire method in a resuce clause
+
+def my_method
+    # do something
+    request_web_page
+rescue
+    # rescue from exception
+    send_alert
+else
+    # success
+    record_success
+ensure
+    # runs either way
+    close_network_connection
+end

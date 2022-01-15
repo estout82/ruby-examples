@@ -2,14 +2,20 @@
 # defaults to :one = 0 :two = 2, etc..
 enum column: [:one, :two, :three]
 
-# has_many through
-# - specifiy a relationthip "through" another relationship
+to_param        # override the id to something else
+
+# has_many
 has_many :join_tables
-has_many :other_entity, through: :join_tables
+has_many :other_models, through: :join_tables                 # specifiy a relationship "through" another model
+has_many :other_models, dependent: :destroy                   # when an associated record is delete, destroy is called on that record
+has_many :other_models, dependent: :delete                    # same but the record is deleted directly from the db             
+has_many :other_models, dependent: :destroy_async             # like destroy but ActiveRecord::DestroyAssociationAsyncJob is enqueued
 
-# delegate
-# - delegate instance methods to methods of other models
+# scope : simplify queries
+scope :out_of_print, -> { where in_print: false }
+scope :for_user, ->(for_user) { where user: for_user }
 
+# delegate : delegate instance methods to methods of other models
 class QueueItem < ActiveRecord::Base
     belongs_to :video
 
