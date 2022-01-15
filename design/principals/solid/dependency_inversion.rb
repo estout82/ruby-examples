@@ -50,7 +50,7 @@ module Server
 end
 
 provider = Hosting.create_provider(:digital_ocean)
-server_creator = Server::Create.new({ name: "test server" })
+server_creator = Server::Create.new({name: "test server"})
 server = server_creator.perform(provider)
 
 puts server   # => created a digital ocean server : test server
