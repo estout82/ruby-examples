@@ -18,11 +18,6 @@ a = %w(hi there man)                    # special syntax to allow constructing a
 a = %W(hi there man #{100})             # - %w is for single quoted strings, %W is for double
 a = %i(arr of symbols)                  # creates an array of symbols
 a = %I(arr of #{1 + 3} symbols)
-                            
-
-puts
-puts a
-puts
 
 obj = Object.new
 
@@ -31,72 +26,6 @@ def obj.to_ary
 end
 
 obj_ary = Array(obj) # calls obj.to_ary
-
-puts "obj_ary: #{obj_ary}"
-
-# try_convert
-
-Array.try_convert(obj) # looks for a suitable conversion method and if none exists returns nil
-
-a = [1, 2, 3]
-
-#[](i)          : get element at index i
-
-puts a.[](1)
-
-#[]=(i, v)      : set element at index i to v
-
-a.[]=(0, 100)
-
-puts a
-
-# dig           : takes indexes and gets elements from a multi-dimentional array
-
-puts
-puts "dig --"
-
-a = [1, [2, [3, 4]]]
-n = a.dig(1, 1, 0) # 3
-puts "n: #{n}"
-
-# unshift       : add an object to the beginning of the array
-
-puts
-puts "unshift --"
-
-a = [1, 2, 3]
-a.unshift(0)
-puts a.to_s
-
-# push / <<     : add an object to the end of the array
-
-puts
-puts "push / << --"
-
-a = [1, 2, 3]
-a.push(4)
-a << 5 # same thing
-puts a.to_s
-
-# pop           : remove element from the end
-
-puts
-puts "pop --"
-
-a = [1, 2, 3, 4, 5]
-a.pop # returns the element that was removed
-a.pop(2) # remove 2 elements
-puts a.to_s
-
-# shift         : remove element from the start
-
-puts
-puts "shift --"
-
-a = [1, 2, 3, 4, 5]
-a.shift # also returns the element that was removed
-a.shift(2) # remove 2 elements
-puts a.to_s
 
 # Operation
 # Retrieve single element 	        [index], slice(index)
@@ -110,4 +39,83 @@ puts a.to_s
 # Remove element from beginning 	shift, shift(length)
 # Add element to end 	            push, push(el1, el2...), <<
 
-# concat 
+#
+# try_convert
+#
+
+Array.try_convert(obj) # looks for a suitable conversion method and if none exists returns nil
+
+a = [1, 2, 3]
+
+#
+#[](i)          : get element at index i
+#
+
+puts a.[](1)
+
+#
+#[]=(i, v)      : set element at index i to v
+#
+
+a.[]=(0, 100)
+
+
+#
+# dig
+# - takes indexes and gets elements from a multi-dimentional array
+#
+
+a = [1, [2, [3, 4]]]
+n = a.dig(1, 1, 0) # 3
+
+#
+# unshift
+# - add an object to the beginning of the array
+#
+
+a = [1, 2, 3]
+a.unshift(0)
+
+#
+# push
+# - << is alias
+# - add an object to the end of the array
+#
+
+a = [1, 2, 3]
+a.push(4)
+a << 5 # same thing
+
+#
+# pop
+# - remove element from the end
+#
+
+a = [1, 2, 3, 4, 5]
+a.pop # returns the element that was removed
+a.pop(2) # remove 2 elements
+
+#
+# shift         : remove element from the start
+#
+
+a = [1, 2, 3, 4, 5]
+a.shift # also returns the element that was removed
+a.shift(2) # remove 2 elements
+
+#
+# reduce
+# - combines all elements of an array by applying an operator or block
+#
+
+sum = [1, 2, 3, 4].reduce(:+) # applies the + operator to reduce the array
+
+# output: 1:2:3:4
+# reduce starts with memo = value at index 0, num = value at index 1
+[1, 2, 3, 4].reduce { |memo, num| memo = memo.to_s +  ":" + num.to_s }
+
+#
+# compact
+#
+
+a.compact                                               # return array with nil objects removed

@@ -4,18 +4,28 @@ enum column: [:one, :two, :three]
 
 to_param        # override the id to something else
 
+#
 # has_many
+#
+
 has_many :join_tables
-has_many :other_models, through: :join_tables                 # specifiy a relationship "through" another model
+has_many :other_models, through: :other_association           # specifiy a relationship "through" another model
 has_many :other_models, dependent: :destroy                   # when an associated record is delete, destroy is called on that record
 has_many :other_models, dependent: :delete                    # same but the record is deleted directly from the db             
 has_many :other_models, dependent: :destroy_async             # like destroy but ActiveRecord::DestroyAssociationAsyncJob is enqueued
+has_many :other_thing, as: :polymorphic_name
 
+#
 # scope : simplify queries
+#
+
 scope :out_of_print, -> { where in_print: false }
 scope :for_user, ->(for_user) { where user: for_user }
 
+#
 # delegate : delegate instance methods to methods of other models
+#
+
 class QueueItem < ActiveRecord::Base
     belongs_to :video
 
@@ -31,8 +41,10 @@ class Video < ActiveRecord::Base
     belongs_to :category
 end
 
+#
 # scope
 # - define helper methods to simplify queries
+#
 
 class Person
     scope :alive, -> { where(dead: false, born: true) }
@@ -96,7 +108,10 @@ class Person < ApplicationRecord
     end
 end
 
+#
 # validates options
+#
+
 allow_nil: true                         # skip validation if record is nil
 allow_blank: true                       # skip validation is blank? is true (empty string)
 message: "%{value} is incorrect"        # pass a custom error message
@@ -110,3 +125,10 @@ on: :account_setup
 # errors
 model.errors.full_messages              # array with all friendly error messages
 model.errors.full_messages_for(:name)   # array with full messages for a specific field
+
+#
+# ActiveModel::Naming
+#
+
+MyModel.model_name.singular             # => "my_model"
+MyModel.model_name.plural               # => "my_models"

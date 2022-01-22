@@ -8,6 +8,8 @@ x &&= 100                       # set x to 100 if x isn't nil or false
 x&.prop&.name                   # safe navigation operator: doesn't throw exception when accessing nil prop
 f = [1, 2, 3]
 [*f]                            # * (splat) is like the spread (...) operator in JS
+&                               # proc operator - calls to_proc on its argument
+foo &:sym                       # same as foo { :sym }
 
 #
 # arrays

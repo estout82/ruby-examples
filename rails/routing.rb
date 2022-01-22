@@ -11,7 +11,13 @@ rails routes | grep                     # search for specific routes
 resources :books                        # creates all the recular routes for a pluralized resource
 
 resources :books do
-  get "isbn"                            # creates a /isbn route for each book resource
+  collection do
+    get "/all"                          # creates /books/alll => all_books_path
+  end
+
+  member do
+    get "/isbn"                         # creates /books/:id/isbn => isbn_book_path
+  end
 end
 
 # - scope
@@ -27,6 +33,8 @@ resources :books do
 end
 
 # helpers
+
+include Rails.application.routes.url_helpers # include this module to use them outside of views & controllers
 
 books_path                              # /books
 book_path(book)                         # /book/1

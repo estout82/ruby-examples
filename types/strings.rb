@@ -11,3 +11,7 @@ string.downcase                 # convert to lowercase and return new string
 string.downcase!                # convert to lowercase in place
 string.gsub(/\d*/, "*")         # global substitution, replace all matches of that regex with the string provided
 string.tr("he", "xx")           # basically find and replace, weired things if strings are different lengths
+
+string.chop                     # remove last character
+string.chop!
+

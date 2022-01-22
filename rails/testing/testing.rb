@@ -1,4 +1,8 @@
 
+#
+#
+#
+
 assert
 
 assert_not
@@ -18,3 +22,10 @@ assert_nothing_raised
 assert_enqueued_emails 3
 
 assert_enqueued_email_with TeamEventsMailer, :new_member, args: [@user, @team.owner]
+
+#
+# conventions
+#
+
+# .method implies class method
+# #method implies instance method
