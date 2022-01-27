@@ -3,3 +3,11 @@
 <a href="/some/link" data-turbo-frame="my_frame"></a>
 
 <turbo-frame id="my_frame"></turbo-frame>
+
+<%= turbo_stream.append :items do %>
+  <!-- content in here will be appended to #items in the dom -->
+
+  <!-- this will render html partials b/c of the turbo_stream helper -->
+  <!-- without helper, it will look for a partial in the .turbo_stream format not .html -->
+  <%= render @thing %>
+<% end %>

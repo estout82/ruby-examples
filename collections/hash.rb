@@ -29,6 +29,15 @@ end
 end
 
 #
+# merge
+# - combine two hashes
+#
+
+{ a: 1, b: 2 }.merge({ c: 3 }) # => { a:1, b:2, c:3 }
+{ a: 1, b: 2 }.merge({ a: 10 }) { |key, old_val, new_val| old_val + new_val } # => { a:11, b:2 }
+
+
+#
 # inject
 # - alias for reduce
 #

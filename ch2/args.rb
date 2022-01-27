@@ -19,8 +19,19 @@ def four(a, b = 1, *c, d)
     puts "d: #{d}"
 end
 
+# keyword args
+def foo(a: 1, b: 2)
+    puts "#{a}, #{b}"
+end
+
+# both keyword args are required
+def bar(a:, b:)
+end
+
 #    a    b  c   c  d
 four("a", 7, 8 , 9, 100)
 
 #    a  d
 four(1, 2)
+
+foo(b: 100) # => 1, 100
