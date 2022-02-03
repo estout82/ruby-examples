@@ -1,0 +1,118 @@
+<!-- role -->
+role="combobox"                         # dropdown with a search box
+role="option"
+role="listbox"
+
+<!-- autocomplete -->
+- help browsers determine what and when to autofill
+autocomplete="off"                      # browsers will not automatically fill in this field
+autocomplete="email"
+autocomplete="address"
+
+
+<!-- rel -->
+rel="nofollow"                           # tells search engines not to follow this link
+
+<!-- semantic html -->
+elements that have click listeners should be buttons
+- they're also keyboard navagable (eg tabbing around)
+<button>Play Video</button>             
+
+<!-- good text example -->
+<h1>Heading</h1>
+<p>some text</p>
+<h2>Sub-Heading</h2>
+<p>Ssome more text</p>
+<ul>
+  <li>list one</li>
+  <li>list two</li>
+</ul>
+
+<em>italic</em>
+<strong>bold</strong>
+<abbr title="Hyper Text Markup Language">HTML</abbr>
+
+<!-- good layout example -->
+<header>
+  <h1>Header</h1>
+</header>
+
+<nav>
+  ... some nav stuff ...
+</nav>
+
+<main>
+  <article>
+    <h2>One thing</h2>
+    <p>...</p>
+  </article>
+  <article>
+    <h2>Two thing</h2>
+    <p>...</p>
+  </article>
+  <aside>
+    <h2>related</h2>
+    <ul>
+      <li>three</li>
+    </ul>
+  </aside>
+</main>
+
+<footer>
+  <p>copyright</p>
+  <address>
+    place
+  </address>
+</footer>
+
+
+<!-- good tabbing example -->
+<h1>Links</h1>
+<p>This is a link to <a href="https://www.mozilla.org">Mozilla</a>.</p>
+<p>Another link, to the <a href="https://developer.mozilla.org">Mozilla Developer Network</a>.</p>
+
+<h2>Buttons</h2>
+<p>
+  <button data-message="This is from the first button">Click me!</button>
+  <button data-message="This is from the second button">Click me too!</button>
+  <button data-message="This is from the third button">And me!</button>
+</p>
+
+<h2>Form</h2>
+<form>
+  <div>
+    <label for="name">Fill in your name:</label>
+    <input type="text" id="name" name="name">
+  </div>
+  <div>
+    <label for="age">Enter your age:</label>
+    <input type="text" id="age" name="age">
+  </div>
+  <div>
+    <label for="mood">Choose your mood:</label>
+    <select id="mood" name="mood">
+      <option>Happy</option>
+      <option>Sad</option>
+      <option>Angry</option>
+      <option>Worried</option>
+    </select>
+  </div>
+</form>
+
+<!-- images -->
+<img src="image.png">      very bad
+<img src="soup.png" alt="a very good description of this soup" title="tooltip text"> good
+
+<img src="soup.png" aria-labelledby="soup-description"> also good
+<p id="soup-description">a verby good descritpion of this soup</p>
+
+<figure> also good
+  <img src="soup.png" alt="a picture of hot soup">
+  <figcaption>a long description of the above soup</figcaption>
+</figure>
+
+leave non-meaningful images with blank alt text - if no alt, screen readers would announce the whole image src url
+<img src="article-icon.png" alt="">
+
+<!-- links -->
+only use links to navigate pages (use buttons for onclick events)

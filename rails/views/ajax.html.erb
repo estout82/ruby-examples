@@ -1,5 +1,5 @@
 
-this generates a link that is intercepted by rails ujs. sends an async request to server
+this generates a link that is intercepted by rails ujs. sends an async request to server with specified method
 <%= link_to "Delete", user_path(@user), remote: true, class: "add" method: :delete %>
 
 <script>
