@@ -119,3 +119,16 @@ sum = [1, 2, 3, 4].reduce(:+) # applies the + operator to reduce the array
 #
 
 a.compact                                               # return array with nil objects removed
+
+#
+# find, detect - find a single element (first match)
+#
+
+arr.detect(1)
+arr.find(1)
+arr.detect ->(n) { n == 1 }
+arr.find ->(n) { n == 1 }
+arr.detect { |n| n == 1 }
+arr.find { |n| n == 1 }
+
+[1, 2, 3, 4].do { |n| next if n >= 3; puts n }

@@ -133,3 +133,9 @@ model.errors.full_messages_for(:name)   # array with full messages for a specifi
 MyModel.model_name.singular             # => "my_model"
 MyModel.model_name.plural               # => "my_models"
 MyModel.model_name.human                # => "My Model"
+
+#
+# ActiveRecord::Reflection::ClassMethods 
+#
+
+MyModel.reflect_on_association(:association_name) # returns the association object or nil if it doesn't exist
