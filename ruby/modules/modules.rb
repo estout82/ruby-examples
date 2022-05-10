@@ -6,20 +6,21 @@
 # - classes have access to the instance methods and varibales defined in the module
 
 module VersionTester
-    attr_accessor :foo
+  attr_accessor :foo
 
-    # like a constructor, initializes the module when it is included
-    included do
-        puts "some initialization code..."
-    end
+  # like a constructor, initializes the module when it is included
+  included do |klass|
+    puts "some initialization code..."
+    klass.extend MyClassMethods # add methods defined on module MyClassMethods to klass's meta class (class methods)
+  end
 
-    def print_version
-        system("ruby -v")
-    end
+  def print_version
+    system("ruby -v")
+  end
 end
 
 class MyClass
-    include VersionTester # now my class has the instance methods and vars defined in VersionTester module
+  include VersionTester # now my class has the instance methods and vars defined in VersionTester module
 end
 
 c = MyClass.new
@@ -32,11 +33,11 @@ x ||= 50 # set x to 50 if x is nil or false
 x &&= 200 # set x to 200 if x isn't nil or false
 
 module Tools
-    class Hammer
-        def do
-            puts "swing!"
-        end
+  class Hammer
+    def do
+      puts "swing!"
     end
+  end
 end
 
 ham = Tools::Hammer.new

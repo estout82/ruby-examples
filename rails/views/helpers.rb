@@ -14,4 +14,5 @@ sanitize("<script>alert()</script>")    # GOOD: outpts "alert()" ... script tags
 # ActionView::RecordIdentifier
 #
 
+# NOTE: calls Person#to_key to find what key to use
 dom_id(Person.find(3))                  # => person_3

@@ -1,0 +1,20 @@
+class Super
+  attr_reader val : String
+
+  def initialize : (val: String) -> void
+    @val = val
+  end
+end
+
+class Sub < Super
+  attr_reader flag : bool
+
+  def initialize : (val: String, ?flag: bool) -> void
+    super(val:)
+    @flag = flag
+  end
+
+  def flag? : () -> bool
+    !!@flag
+  end
+end
