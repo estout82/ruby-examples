@@ -48,6 +48,9 @@ end
 
 class Person
     scope :alive, -> { where(dead: false, born: true) }
+
+    # NOTE scopes can deal with nil return values unlike methods (think chaining)
+    scope :dead, -> { where(dead: true) if born }
 end
 
 p = Person.new(person_fields)
