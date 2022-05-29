@@ -41,3 +41,7 @@ book_path(book)                         # /book/1
 edit_book_path(book)                    # /book/1/edit
 new_book_path                           # /books/new
 book_isbn_path(book)                    # /books/1/isbn
+
+# NOTE rails will add _index to the index action of non-pluralized resources
+# eg  user#index  -> user_index_path
+#     users#index -> users_path
