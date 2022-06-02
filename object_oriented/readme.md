@@ -1,1 +1,0 @@
-notes for the book **"Practical Object-Oriented Design: An Agile Primer Using Ruby"**

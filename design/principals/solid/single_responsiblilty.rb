@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
 
-# every module or class shoold have resopnsibility over a single part of the functiuonality 
+#
+# every module or class should have responsibility over a single part of the functionality 
 # and that responsibility should be entirely encapsulated
+#
+# NOTE cohesion : how well the class's components fit together (eg. does it have a
+# responsibility single). the SRP requires a class to be highly cohesive.
+#
 
 # app/models/server.rb
 class Server < ApplicationRecord
