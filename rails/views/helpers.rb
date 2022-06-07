@@ -10,6 +10,20 @@ sanitize(string)                        # GOOD: inserts as HTML SAFE html tags (
 sanitize("<script>alert()</script>")    # GOOD: outpts "alert()" ... script tags are removed 
 
 #
+# ERB::Util (module)
+#
+
+html_escape "Moe's"                     # escape for html (html entities)
+# => "Moe&#39;s"
+
+#
+# CGI (class)
+#
+
+CGI.escape "Moe's"                      # escape for URL
+# => "Moe%27s"
+
+#
 # ActionView::RecordIdentifier
 #
 
