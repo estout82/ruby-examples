@@ -1,6 +1,10 @@
-#!/usr/bin/env
+#!/usr/bin/env ruby
 
 # every recursive function has a base case and a recursive case
+
+class Box
+  attr_accessor :items
+end
 
 def look_for_key(box)
   return if box.items.empty? # also a base case (prevent infinite loop if box has no items)
