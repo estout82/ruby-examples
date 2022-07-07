@@ -14,7 +14,9 @@ graph["jonny"] = []
 visits = 0
 
 def breadth_first_search(graph)
-  __breadth_first_search_recurs graph, graph["you"], [], 0
+  search = graph["you"].map { |node| {node: node, level: 1} }
+
+  __breadth_first_search_recurs graph, search, [], 0
 end
 
 def __breadth_first_search_recurs(graph, search, visited, visits)
@@ -22,21 +24,21 @@ def __breadth_first_search_recurs(graph, search, visited, visits)
 
   target = search.shift
 
-  unless visited.include? target
+  unless visited.include? target[:node]
     puts "searching #{target}"
 
-    if target == "thom"
-      puts "found thom in #{visits} visits"
+    if target[:node] == "thom"
+      puts "found thom in #{target[:level]} levels #{visits} visits"
       return
     end
 
+
     visits += 1
+    search.concat graph[target[:node]].map { |node| {node: node, level: target[:level] + 1} }
 
-    search.concat graph[target]
-
-    visited.push target
+    visited.push target[:node]
   else
-    puts "skipping #{target} because it has already been visited"
+    puts "skipping #{target[:node]} because it has already been visited"
   end
 
   __breadth_first_search_recurs graph, search, visited, visits
