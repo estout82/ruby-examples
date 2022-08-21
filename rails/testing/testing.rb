@@ -29,3 +29,17 @@ assert_enqueued_email_with TeamEventsMailer, :new_member, args: [@user, @team.ow
 
 # .method implies class method
 # #method implies instance method
+
+#
+# requests (integration tests)
+#
+
+post my_path, as: :json                 # submit a request as json
+post my_path, as: :turbo_stream         # submit a request as turbo_stream
+
+response.body                           # access response body after submitting a request
+                                        # NOTE Nokogiri with error if the body is empty (in the
+                                        # case of an empty turbo response for example)
+
+assert_selector                         # assert css selector (ViewComponent::TestCase)
+assert_select                           # assert css selector (ActionDispatch::IntegrationTest)

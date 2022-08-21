@@ -9,5 +9,10 @@
 
   <!-- this will render html partials b/c of the turbo_stream helper -->
   <!-- without helper, it will look for a partial in the .turbo_stream format not .html -->
+  <!-- NOTE allow_infered_rendering: false to prevent rendering HTML partials -->
   <%= render @thing %>
+<% end %>
+
+<%= turbo_stream.append_all ".something" do %>
+  <!-- use a selector instead of it -->
 <% end %>
