@@ -15,8 +15,18 @@ Color("brand")                    // pulls a named color from the assets
 
 .tabItem { ... }                  // adds a tab to the a tab view
 
+@State                            // A property wrapper that allows you to read / write a value
+                                  // - when the value changes, it recomputes the body appearance of
+                                  // current component. Think useState from react
+
+@StateObject                      // Like @state but with ObservableObjects
+                                  // - when the object publishes a change, view is re-rendered
+
+@Published                        // A property that should broadcast its changes
+
 /*
  * Important classes
+ * - NOTE these are UI Kit classes
  */
 
 AppDelegate
