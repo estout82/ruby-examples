@@ -38,7 +38,7 @@ end
 # - can call helpers from helpers.*
 
 rails c
-helpers.word_of_the_day
+helper.word_of_the_day
 
 # time_ago_in_words
 # - built in Rails helper
